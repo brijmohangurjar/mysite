@@ -1,0 +1,65 @@
+<ion-header [translucent]="true" class="my-site-home-header">
+  <ion-row class="ion-no-padding ion-no-margin">
+    <ion-col class="ion-no-padding ion-no-margin">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>MySite</ion-title>
+      </ion-toolbar>
+    </ion-col>
+    <ion-col class="ion-no-padding ion-no-margin">
+      <ion-toolbar>
+        <ion-title class="title-cart-icon"><ion-icon name="cart-outline"></ion-icon></ion-title>
+      </ion-toolbar>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-no-padding ion-no-margin search-input">
+    <ion-col class="ion-no-padding ion-no-margin">
+      <ion-searchbar #searchTermInput type="text" search-icon="" 
+      color="light" name="searchValues" placeholder="Search for Products"
+     >
+    </ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="ion-no-margin ion-no-padding">
+    <ion-col class="ion-no-margin ion-no-padding">
+      <ion-slides [options]="slideOptsOne" pager="true">
+        <ion-slide *ngFor="let item of offerList" (ionSlideDidChange)="slideDeal(item)">
+          <ion-grid class="ion-no-margin ion-no-padding">  
+            <ion-row  (click)="medicinePopover(item)" >
+              <ion-col size = "12" class="ion-no-margin ion-no-padding">
+                <ion-card class="ion-no-margin ion-no-padding">
+                  <ion-card-content class="ion-no-margin ion-no-padding">
+                    <ion-col  size="12" class="img-col ion-no-margin ion-no-padding">
+                      <span class="test">
+                        <img src="{{item.dealImage}}" class="img_coverPhoto">
+                      </span>
+                    </ion-col>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            
+            </ion-row>              
+          </ion-grid>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+
+
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">{{ folder }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong class="capitalize">{{ folder }}</strong>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+</ion-content>
